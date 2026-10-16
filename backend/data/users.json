@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "nome": "Aluno de Teste",
+    "email": "aluno@teste.com",
+    "senha": "123456",
+    "perfil": "Aluno"
+  },
+  {
+    "id": "2",
+    "nome": "Professor de Teste",
+    "email": "prof@teste.com",
+    "senha": "123456",
+    "perfil": "Professor"
+  },
+  {
+    "id": "3",
+    "nome": "Aluno",
+    "email": "aluno@gmail.com",
+    "senha": "123",
+    "perfil": "Aluno"
+  },
+  {
+    "id": "4",
+    "nome": "Professor",
+    "email": "professor@gmail.com",
+    "senha": "123",
+    "perfil": "Professor"
+  }
+]

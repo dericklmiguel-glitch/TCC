@@ -1,0 +1,1038 @@
+/* =====================================================
+   MODO CLARO E MODO ESCURO
+   ===================================================== */
+
+/* TRANSIÇÃO DO TEMA */
+
+body,
+.sidebar,
+.header,
+.view-card,
+.dash-panel,
+.dash-stat-card,
+.auth-card,
+.modal-card,
+input,
+textarea,
+select,
+button {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* =====================================================
+   BOTÃO DO TEMA
+   ===================================================== */
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #1e293b;
+
+  font-size: 19px;
+
+  cursor: pointer;
+
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+
+/* =====================================================
+   MODO ESCURO
+   ===================================================== */
+
+body.dark-mode {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* SIDEBAR */
+
+body.dark-mode .sidebar {
+  background-color: #111827;
+  border-color: #1f2937;
+}
+
+body.dark-mode .logo {
+  color: #f8fafc;
+}
+
+
+/* HEADER */
+
+body.dark-mode .header {
+  background-color: #111827;
+  border-color: #1f2937;
+}
+
+body.dark-mode .header-welcome,
+body.dark-mode .user-details strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .user-role {
+  color: #94a3b8;
+}
+
+
+/* ÁREA PRINCIPAL */
+
+body.dark-mode .content-area {
+  background-color: #0f172a;
+}
+
+
+/* CARDS */
+
+body.dark-mode .view-card,
+body.dark-mode .dash-panel,
+body.dark-mode .dash-stat-card,
+body.dark-mode .auth-card,
+body.dark-mode .modal-card {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+
+/* TÍTULOS */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #f8fafc;
+}
+
+
+/* TEXTOS */
+
+body.dark-mode p,
+body.dark-mode label,
+body.dark-mode small {
+  color: #cbd5e1;
+}
+
+
+/* INPUTS */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #0f172a;
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #64748b;
+}
+
+
+/* SELECT */
+
+body.dark-mode select option {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+
+/* BOTÃO DO TEMA */
+
+body.dark-mode .theme-toggle {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+
+/* BOTÕES DA SIDEBAR */
+
+body.dark-mode .nav-btn {
+  color: #cbd5e1;
+}
+
+body.dark-mode .nav-btn:hover {
+  background-color: #1e293b;
+}
+
+body.dark-mode .nav-btn.active {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+
+/* INFORMAÇÕES DO USUÁRIO */
+
+body.dark-mode .user-info-badge {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+
+/* LISTAS / ÁREAS INTERNAS */
+
+body.dark-mode #planner-list,
+body.dark-mode #resumos-list,
+body.dark-mode #aluno-questoes-list,
+body.dark-mode #prof-questoes-list,
+body.dark-mode #prof-correcoes-dissertativas {
+  color: #e2e8f0;
+}
+
+
+/* QUESTÕES */
+
+body.dark-mode .option-btn {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+body.dark-mode .option-btn:hover {
+  background-color: #334155;
+}
+
+
+/* MODAL */
+
+body.dark-mode .modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* =====================================================
+   CALENDÁRIO
+   ===================================================== */
+
+body.dark-mode .cal-board-container {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .cal-board-header {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+body.dark-mode .cal-grid-weekdays {
+  background-color: #111827;
+  color: #cbd5e1;
+}
+
+body.dark-mode .cal-grid-board {
+  background-color: #0f172a;
+}
+
+
+/* =====================================================
+   XP / CONQUISTAS
+   ===================================================== */
+
+body.dark-mode .xp-banner {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .conquistas-grid {
+  color: #e2e8f0;
+}
+/* =====================================================
+   MATERIAIS DE ESTUDO
+   ===================================================== */
+
+.material-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+
+.material-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.material-card-header > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.material-icon {
+  font-size: 24px;
+}
+
+.material-card-header strong {
+  font-size: 17px;
+  color: #1e293b;
+}
+
+.material-description {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 8px 0 14px;
+}
+
+.material-target,
+.material-teacher,
+.material-date {
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.material-open-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0284c7;
+  color: white;
+  text-decoration: none;
+  padding: 9px 14px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.material-open-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.material-delete-btn {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.material-delete-btn:hover {
+  background: #fecaca;
+}
+
+.material-empty {
+  text-align: center;
+  padding: 35px 20px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  color: #64748b;
+}
+
+.material-empty h3 {
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.material-empty p {
+  color: #64748b;
+}
+
+.aluno-material-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.aluno-material-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =====================================================
+   MATERIAIS - MODO ESCURO
+   ===================================================== */
+
+body.dark-mode .material-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: none;
+}
+
+body.dark-mode .material-card-header strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .material-description,
+body.dark-mode .material-target,
+body.dark-mode .material-teacher,
+body.dark-mode .material-date {
+  color: #cbd5e1;
+}
+
+body.dark-mode .material-empty {
+  border-color: #475569;
+}
+
+body.dark-mode .material-empty h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .material-empty p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .material-delete-btn {
+  background: #450a0a;
+  color: #fca5a5;
+}
+
+
+/* =====================================================================
+   MODO ESCURO — VISUAL NOVO + CORREÇÃO DE TEXTOS ILEGÍVEIS
+   (cole este bloco no FINAL do global.css; só afeta o modo escuro)
+   ===================================================================== */
+
+/* ---------- Paleta ---------- */
+body.dark-mode {
+  color-scheme: dark;
+
+  --dm-bg: #0b1120;
+  --dm-surface: #121b2f;
+  --dm-surface-2: #17223a;
+  --dm-surface-3: #1e2b47;
+  --dm-border: #263450;
+  --dm-border-strong: #34476b;
+  --dm-text: #e8eef9;
+  --dm-muted: #9db0cc;
+  --dm-accent: #38bdf8;
+  --dm-accent-soft: rgba(56, 189, 248, 0.14);
+
+  /* usadas pelos cards criados via JavaScript */
+  --card-bg: var(--dm-surface-2);
+  --text-color: var(--dm-text);
+
+  background:
+    radial-gradient(1100px 520px at 85% -10%, rgba(56, 189, 248, 0.08), transparent 60%),
+    radial-gradient(900px 480px at -10% 110%, rgba(99, 102, 241, 0.07), transparent 60%),
+    var(--dm-bg);
+  background-attachment: fixed;
+  color: var(--dm-text);
+}
+
+html:has(body.dark-mode) {
+  background: #0b1120;
+}
+
+body.dark-mode #app-layout,
+body.dark-mode .main-wrapper,
+body.dark-mode .content-area {
+  background: transparent;
+}
+
+/* ---------- Barra lateral ---------- */
+body.dark-mode .sidebar {
+  background: linear-gradient(180deg, #0f182c 0%, #0b1120 100%);
+  border-right: 1px solid var(--dm-border);
+}
+
+body.dark-mode .sidebar .logo {
+  color: #f1f7ff;
+  letter-spacing: 0.2px;
+}
+
+body.dark-mode .nav-btn {
+  color: var(--dm-muted);
+  border-radius: 10px;
+}
+
+body.dark-mode .nav-btn:hover {
+  background: var(--dm-surface-3);
+  color: #ffffff;
+}
+
+body.dark-mode .nav-btn.active {
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.20), rgba(56, 189, 248, 0.04));
+  color: #ffffff;
+  box-shadow: inset 3px 0 0 var(--dm-accent);
+}
+
+/* ---------- Cabeçalho ---------- */
+body.dark-mode .header {
+  background: rgba(13, 20, 38, 0.82);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--dm-border);
+}
+
+body.dark-mode .header-welcome {
+  color: var(--dm-muted);
+}
+
+body.dark-mode .user-info-badge {
+  background: var(--dm-surface-2);
+  border-color: var(--dm-border-strong);
+}
+
+body.dark-mode .user-details strong {
+  color: var(--dm-text);
+}
+
+body.dark-mode .user-role {
+  color: var(--dm-accent);
+}
+
+body.dark-mode .theme-toggle {
+  background: var(--dm-surface-2);
+  border-color: var(--dm-border-strong);
+}
+
+body.dark-mode .btn-logout {
+  background: rgba(248, 113, 113, 0.14);
+  color: #fca5a5;
+  border-color: rgba(248, 113, 113, 0.38);
+}
+
+body.dark-mode .btn-logout:hover {
+  background: rgba(248, 113, 113, 0.24);
+}
+
+/* ---------- Login / Cadastro ---------- */
+body.dark-mode #auth-container {
+  background:
+    radial-gradient(800px 420px at 80% 0%, rgba(56, 189, 248, 0.12), transparent 60%),
+    radial-gradient(700px 420px at 10% 100%, rgba(99, 102, 241, 0.12), transparent 60%),
+    #0b1120;
+}
+
+body.dark-mode .auth-card {
+  background: var(--dm-surface);
+  border: 1px solid var(--dm-border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+body.dark-mode .auth-card h2 {
+  color: var(--dm-accent);
+}
+
+body.dark-mode .auth-card p {
+  color: var(--dm-muted);
+}
+
+body.dark-mode .auth-toggle-link {
+  color: var(--dm-accent);
+}
+
+/* ---------- Cards e textos ---------- */
+body.dark-mode .view-card,
+body.dark-mode .dash-panel,
+body.dark-mode .dash-stat-card,
+body.dark-mode .modal-card {
+  background: var(--dm-surface);
+  border: 1px solid var(--dm-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+body.dark-mode .view-card h2,
+body.dark-mode .dash-panel h3 {
+  color: var(--dm-text);
+}
+
+body.dark-mode p,
+body.dark-mode label,
+body.dark-mode small {
+  color: #c3d0e6;
+}
+
+body.dark-mode hr {
+  border: 0;
+  border-top: 1px solid var(--dm-border-strong);
+}
+
+/* ---------- Campos de formulário ---------- */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #0d1526;
+  color: var(--dm-text);
+  border: 1px solid var(--dm-border-strong);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  outline: none;
+  border-color: var(--dm-accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.20);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #6b7f9e;
+}
+
+/* ---------- Botões principais ---------- */
+body.dark-mode .view-card form button,
+body.dark-mode .auth-card button,
+body.dark-mode .material-open-btn {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+body.dark-mode .view-card form button:hover,
+body.dark-mode .auth-card button:hover,
+body.dark-mode .material-open-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+body.dark-mode .btn-secondary {
+  background: var(--dm-surface-3);
+  color: var(--dm-text);
+}
+
+/* ---------- Dashboard ---------- */
+body.dark-mode .dash-banner {
+  background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%);
+  box-shadow: 0 10px 30px rgba(29, 78, 216, 0.28);
+}
+
+body.dark-mode .dash-banner h3,
+body.dark-mode .dash-banner p {
+  color: #ffffff;
+}
+
+body.dark-mode .dash-stat-card {
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+body.dark-mode .dash-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--dm-border-strong);
+}
+
+body.dark-mode .dash-stat-icon {
+  background: var(--dm-accent-soft);
+}
+
+body.dark-mode .dash-stat-info h4 {
+  color: var(--dm-muted);
+}
+
+body.dark-mode .dash-stat-info .stat-number {
+  color: #ffffff;
+}
+
+body.dark-mode .dash-item-row,
+body.dark-mode .dashboard-item {
+  background: var(--dm-surface-2);
+  border: 1px solid var(--dm-border);
+  box-shadow: none;
+}
+
+body.dark-mode .dashboard-item:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .dashboard-item-info strong {
+  color: var(--dm-text);
+}
+
+body.dark-mode .dash-empty {
+  color: var(--dm-muted);
+}
+
+body.dark-mode .dashboard-empty {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--dm-border-strong);
+  color: var(--dm-muted);
+}
+
+body.dark-mode .dashboard-error {
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #fca5a5;
+}
+
+body.dark-mode .prioridade-alta,
+body.dark-mode .badge-alta {
+  background: rgba(248, 113, 113, 0.18);
+  color: #fca5a5;
+}
+
+body.dark-mode .prioridade-media,
+body.dark-mode .badge-media {
+  background: rgba(251, 191, 36, 0.18);
+  color: #fcd34d;
+}
+
+body.dark-mode .prioridade-baixa,
+body.dark-mode .badge-baixa {
+  background: rgba(74, 222, 128, 0.16);
+  color: #86efac;
+}
+
+body.dark-mode .dashboard-disciplina,
+body.dark-mode .question-tag {
+  background: var(--dm-accent-soft);
+  color: #7dd3fc;
+}
+
+/* ---------- Calendário ---------- */
+body.dark-mode .cal-board-container {
+  background: var(--dm-surface);
+  border-color: var(--dm-border);
+}
+
+body.dark-mode .cal-board-header {
+  background: transparent;
+}
+
+body.dark-mode .cal-board-header h3 {
+  color: var(--dm-text);
+}
+
+body.dark-mode .cal-nav-btn {
+  background: var(--dm-surface-3);
+  border-color: var(--dm-border-strong);
+  color: var(--dm-text);
+}
+
+body.dark-mode .cal-nav-btn:hover {
+  background: #28385c;
+}
+
+body.dark-mode .cal-grid-weekdays {
+  background: transparent;
+  color: var(--dm-muted);
+  border-bottom: 1px solid var(--dm-border);
+}
+
+body.dark-mode .cal-grid-board {
+  background: transparent;
+}
+
+body.dark-mode .cal-day-cell {
+  background: var(--dm-surface-2);
+  border-color: var(--dm-border);
+}
+
+body.dark-mode .cal-day-cell:hover:not(.empty-cell) {
+  background: var(--dm-surface-3);
+  border-color: var(--dm-accent);
+}
+
+body.dark-mode .cal-day-cell.empty-cell {
+  background: transparent;
+  border-color: transparent;
+}
+
+body.dark-mode .cal-day-num {
+  color: #c3d0e6;
+}
+
+body.dark-mode .postit-card button {
+  color: inherit;
+}
+
+body.dark-mode .color-option.selected {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px var(--dm-accent);
+}
+
+/* ---------- XP / Conquistas ---------- */
+body.dark-mode .xp-banner {
+  background: linear-gradient(135deg, #0d1526 0%, #17223a 100%);
+  border: 1px solid var(--dm-border);
+  color: var(--dm-text);
+}
+
+body.dark-mode .xp-labels,
+body.dark-mode .xp-labels span {
+  color: var(--dm-text);
+}
+
+body.dark-mode .xp-bar-outer {
+  background-color: #0b1324;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .badge-card {
+  background: var(--dm-surface-2);
+  border-color: var(--dm-border);
+}
+
+body.dark-mode .badge-card.locked {
+  background: var(--dm-surface);
+  opacity: 0.6;
+  filter: grayscale(70%);
+}
+
+body.dark-mode .badge-card.unlocked {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(56, 189, 248, 0.05));
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.15);
+}
+
+body.dark-mode .badge-info h4 {
+  color: var(--dm-text);
+}
+
+body.dark-mode .badge-info p {
+  color: var(--dm-muted);
+}
+
+body.dark-mode .badge-xp {
+  color: #7dd3fc;
+}
+
+/* ---------- Questões ---------- */
+body.dark-mode .question-card {
+  background: var(--dm-surface-2);
+  border-color: var(--dm-border);
+}
+
+body.dark-mode .option-item {
+  background: var(--dm-surface);
+  border-color: var(--dm-border);
+  color: var(--dm-text);
+}
+
+body.dark-mode .option-item:hover {
+  background: var(--dm-surface-3);
+  border-color: var(--dm-accent);
+}
+
+body.dark-mode .option-item.selected-correct {
+  background: rgba(74, 222, 128, 0.15);
+  border-color: #22c55e;
+  color: #86efac;
+}
+
+body.dark-mode .option-item.selected-wrong {
+  background: rgba(248, 113, 113, 0.15);
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+
+body.dark-mode .option-btn {
+  width: 100%;
+  padding: 11px 14px;
+  text-align: left;
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--dm-surface-3);
+  color: var(--dm-text);
+  border: 1px solid var(--dm-border-strong);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+body.dark-mode .option-btn:hover {
+  background: var(--dm-accent-soft);
+  border-color: var(--dm-accent);
+  transform: translateX(2px);
+}
+
+/* ---------- Cards de alunos (professor) ---------- */
+body.dark-mode .student-card {
+  background: var(--dm-surface-2);
+  border-color: var(--dm-border);
+}
+
+body.dark-mode .student-card h4 {
+  color: var(--dm-text);
+}
+
+body.dark-mode .student-card p {
+  color: var(--dm-muted);
+}
+
+body.dark-mode .student-stats {
+  background: var(--dm-surface);
+  color: #c3d0e6;
+}
+
+/* ---------- Materiais ---------- */
+body.dark-mode .material-card {
+  background: var(--dm-surface-2);
+  border-color: var(--dm-border);
+}
+
+body.dark-mode .material-delete-btn {
+  background: rgba(248, 113, 113, 0.16);
+  color: #fca5a5;
+}
+
+/* ---------- Modal ---------- */
+body.dark-mode .modal-overlay {
+  background: rgba(3, 7, 18, 0.72);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+/* =====================================================================
+   ESTILOS INLINE GERADOS PELO JAVASCRIPT (cards de metas, resumos,
+   questões, correções, acompanhamento de alunos...)
+   Esses elementos têm cores "de modo claro" escritas direto no HTML,
+   por isso precisam de !important para serem trocados.
+   ===================================================================== */
+
+/* Fundos claros neutros -> superfície escura */
+body.dark-mode :is(
+  [style*="#f8fafc"],
+  [style*="#fafafa"],
+  [style*="background:#ffffff"],
+  [style*="background: #ffffff"],
+  [style*="background:#fff;"],
+  [style*="background: #fff;"]
+) {
+  background: var(--dm-surface-2) !important;
+  border-color: var(--dm-border) !important;
+}
+
+/* Fundos pastel -> versões translúcidas */
+body.dark-mode :is([style*="#e0f2fe"], [style*="#f0f9ff"], [style*="#eff6ff"]) {
+  background: rgba(56, 189, 248, 0.12) !important;
+}
+
+body.dark-mode [style*="#dbeafe"] {
+  background: rgba(56, 189, 248, 0.22) !important;
+}
+
+body.dark-mode :is([style*="#fee2e2"], [style*="#fef2f2"]) {
+  background: rgba(248, 113, 113, 0.14) !important;
+}
+
+body.dark-mode :is([style*="#dcfce7"], [style*="#f0fdf4"]) {
+  background: rgba(74, 222, 128, 0.13) !important;
+}
+
+body.dark-mode [style*="#fef3c7"] {
+  background: rgba(251, 191, 36, 0.15) !important;
+}
+
+body.dark-mode [style*="#fff7ed"] {
+  background: rgba(251, 146, 60, 0.14) !important;
+}
+
+body.dark-mode :is([style*="#f3e8ff"], [style*="#ede9fe"]) {
+  background: rgba(167, 139, 250, 0.16) !important;
+}
+
+body.dark-mode [style*="#f1f5f9"] {
+  background: rgba(148, 163, 184, 0.16) !important;
+}
+
+/* Bordas claras */
+body.dark-mode :is([style*="#e2e8f0"], [style*="#cbd5e1"]) {
+  border-color: var(--dm-border) !important;
+}
+
+body.dark-mode [style*="#bfdbfe"] {
+  border-color: rgba(56, 189, 248, 0.30) !important;
+}
+
+body.dark-mode [style*="#fecaca"] {
+  border-color: rgba(248, 113, 113, 0.35) !important;
+}
+
+/* Textos escuros -> claros */
+body.dark-mode :is(
+  [style*="color:#64748b"], [style*="color: #64748b"],
+  [style*="color:#94a3b8"], [style*="color: #94a3b8"]
+) {
+  color: var(--dm-muted) !important;
+}
+
+body.dark-mode :is(
+  [style*="color:#0f172a"], [style*="color: #0f172a"],
+  [style*="color:#1e293b"], [style*="color: #1e293b"],
+  [style*="color:#334155"], [style*="color: #334155"]
+) {
+  color: var(--dm-text) !important;
+}
+
+body.dark-mode :is(
+  [style*="color:#0369a1"], [style*="color: #0369a1"],
+  [style*="color:#0284c7"], [style*="color: #0284c7"]
+) {
+  color: #7dd3fc !important;
+}
+
+body.dark-mode :is([style*="color:#1d4ed8"], [style*="color: #1d4ed8"]) {
+  color: #93c5fd !important;
+}
+
+body.dark-mode :is(
+  [style*="color:#b91c1c"], [style*="color: #b91c1c"],
+  [style*="color:#991b1b"], [style*="color: #991b1b"],
+  [style*="color:#dc2626"], [style*="color: #dc2626"]
+) {
+  color: #fca5a5 !important;
+}
+
+body.dark-mode :is(
+  [style*="color:#15803d"], [style*="color: #15803d"],
+  [style*="color:#166534"], [style*="color: #166534"],
+  [style*="color:#16a34a"], [style*="color: #16a34a"]
+) {
+  color: #86efac !important;
+}
+
+body.dark-mode :is([style*="color:#c2410c"], [style*="color: #c2410c"]) {
+  color: #fdba74 !important;
+}
+
+body.dark-mode :is(
+  [style*="color:#7e22ce"], [style*="color: #7e22ce"],
+  [style*="color:#6d28d9"], [style*="color: #6d28d9"]
+) {
+  color: #d8b4fe !important;
+}
+
+body.dark-mode :is(
+  [style*="color:#92400e"], [style*="color: #92400e"],
+  [style*="color:#b45309"], [style*="color: #b45309"]
+) {
+  color: #fcd34d !important;
+}
+
+/* Cores aplicadas via JavaScript (o navegador converte para rgb) */
+body.dark-mode [style*="color: rgb(220, 38, 38)"] {
+  color: #f87171 !important;
+}
+
+body.dark-mode [style*="color: rgb(22, 163, 74)"] {
+  color: #4ade80 !important;
+}
+.app-logo, .header-logo {
+    max-height: 45px;
+    width: auto;
+    object-fit: contain;
+}

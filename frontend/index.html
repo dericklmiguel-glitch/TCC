@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>StudyFlow - Plataforma de Estudos</title>
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+
+  <!-- ===================================================== -->
+  <!-- 1. AUTENTICAÇÃO -->
+  <!-- ===================================================== -->
+
+  <div id="auth-container">
+
+    <!-- LOGIN -->
+
+    <div id="view-login" class="auth-card">
+
+    <!-- Exemplo para a tela de login -->
+<div class="login-logo-container">
+    <img src="./img/logo.png" alt="Logo do Sistema" class="app-logo">
+</div>
+
+      <p>
+        Entre na sua conta para continuar
+      </p>
+
+      <form id="login-form">
+
+        <input
+          type="email"
+          id="login-email"
+          placeholder="E-mail"
+          required
+        >
+
+        <input
+          type="password"
+          id="login-password"
+          placeholder="Senha"
+          required
+        >
+
+        <button type="submit">
+          Entrar
+        </button>
+
+      </form>
+
+      <p
+        id="login-error"
+        style="
+          color: #ef4444;
+          margin-top: 10px;
+          font-size: 13px;
+        "
+      ></p>
+
+      <p style="margin-top: 20px;">
+
+        Não tem conta?
+
+        <a
+          href="#"
+          id="btn-show-register"
+          class="auth-toggle-link"
+        >
+          Cadastre-se
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <!-- CADASTRO -->
+
+    <div
+      id="view-register"
+      class="auth-card hidden"
+    >
+
+      <h2>StudyFlow</h2>
+
+      <p>
+        Crie a sua conta de acesso
+      </p>
+
+      <form id="register-form">
+
+        <input
+          type="text"
+          id="reg-nome"
+          placeholder="Nome Completo"
+          required
+        >
+
+        <input
+          type="email"
+          id="reg-email"
+          placeholder="E-mail"
+          required
+        >
+
+        <input
+          type="password"
+          id="reg-password"
+          placeholder="Senha"
+          required
+        >
+
+        <select
+          id="reg-perfil"
+          required
+        >
+
+          <option value="Aluno">
+            Aluno
+          </option>
+
+          <option value="Professor">
+            Professor
+          </option>
+
+        </select>
+
+        <button type="submit">
+          Cadastrar
+        </button>
+
+      </form>
+
+      <p
+        id="register-error"
+        style="
+          color: #ef4444;
+          margin-top: 10px;
+          font-size: 13px;
+        "
+      ></p>
+
+      <p style="margin-top: 20px;">
+
+        Já tem conta?
+
+        <a
+          href="#"
+          id="btn-show-login"
+          class="auth-toggle-link"
+        >
+          Fazer Login
+        </a>
+
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===================================================== -->
+  <!-- 2. APLICAÇÃO PRINCIPAL -->
+  <!-- ===================================================== -->
+
+  <div
+    id="app-container"
+    class="hidden"
+  >
+
+    <div id="app-layout">
+
+
+      <!-- ================================================= -->
+      <!-- BARRA LATERAL -->
+      <!-- ================================================= -->
+
+      <aside class="sidebar">
+
+        <div class="logo">
+          StudyFlow 📚
+        </div>
+
+        <nav>
+
+          <!-- DASHBOARD -->
+
+          <button
+            class="nav-btn active"
+            data-view="dashboard"
+          >
+            🏠 Dashboard
+          </button>
+
+
+          <!-- ALUNO -->
+
+          <button
+            class="nav-btn aluno-only"
+            data-view="planner"
+          >
+            📊 Planner / Metas
+          </button>
+
+          <button
+            class="nav-btn aluno-only"
+            data-view="resumos"
+          >
+            📝 Resumos
+          </button>
+
+          <button
+            class="nav-btn aluno-only"
+            data-view="calendario"
+          >
+            📅 Calendário
+          </button>
+
+          <button
+            class="nav-btn aluno-only"
+            data-view="conquistas"
+          >
+            🏆 Conquistas
+          </button>
+
+
+          <!-- QUESTÕES -->
+
+          <button
+            class="nav-btn"
+            data-view="questoes"
+          >
+            ❓ Questões & Simulados
+          </button>
+
+
+          <!-- MATERIAIS -->
+
+          <button
+            class="nav-btn"
+            data-view="materiais"
+          >
+            📚 Materiais de Estudo
+          </button>
+
+
+          <!-- PROFESSOR -->
+
+          <button
+            class="nav-btn prof-only hidden"
+            data-view="alunos"
+          >
+            👥 Acompanhar Alunos
+          </button>
+
+        </nav>
+
+      </aside>
+
+
+      <!-- ================================================= -->
+      <!-- ÁREA PRINCIPAL -->
+      <!-- ================================================= -->
+
+      <div class="main-wrapper">
+
+
+        <!-- ================================================= -->
+        <!-- HEADER -->
+        <!-- ================================================= -->
+
+        <header class="header">
+
+          <div class="header-welcome"></div>
+
+          <div class="header-user-actions">
+
+
+            <!-- MODO CLARO / ESCURO -->
+
+            <button
+              id="theme-toggle"
+              class="theme-toggle"
+              type="button"
+              title="Alternar tema"
+            >
+              🌙
+            </button>
+
+
+            <!-- USUÁRIO -->
+
+            <div class="user-info-badge">
+
+              <span class="user-icon">
+                👤
+              </span>
+
+              <div class="user-details">
+
+                <strong id="user-name">
+                  Utilizador
+                </strong>
+
+                <small
+                  id="user-perfil"
+                  class="user-role"
+                >
+                  Aluno
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <!-- SAIR -->
+
+            <button
+              id="logout-btn"
+              class="btn-logout"
+            >
+              Sair
+            </button>
+
+          </div>
+
+        </header>
+
+
+        <!-- ================================================= -->
+        <!-- CONTEÚDO -->
+        <!-- ================================================= -->
+
+        <main class="content-area">
+
+
+          <!-- ================================================= -->
+          <!-- DASHBOARD -->
+          <!-- ================================================= -->
+
+          <section
+            id="view-dashboard"
+            class="view-card"
+          >
+
+            <div class="dash-banner">
+
+              <h3>
+                Bem-vindo de volta,
+                <span id="dash-user-name">
+                  Usuário
+                </span>!
+                🎉
+              </h3>
+
+              <p id="dash-welcome-text">
+                Acompanhe o progresso do seu aprendizado acadêmico.
+              </p>
+
+            </div>
+
+
+            <!-- DASHBOARD DO ALUNO -->
+
+            <div class="aluno-only">
+
+              <div class="dash-grid">
+
+                <div class="dash-stat-card">
+
+                  <div class="dash-stat-icon">
+                    🎯
+                  </div>
+
+                  <div class="dash-stat-info">
+
+                    <h4>
+                      Total de Metas
+                    </h4>
+
+                    <div
+                      class="stat-number"
+                      id="dash-total-metas"
+                    >
+                      0
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="dash-stat-card">
+
+                  <div class="dash-stat-icon">
+                    🔥
+                  </div>
+
+                  <div class="dash-stat-info">
+
+                    <h4>
+                      Metas de Alta Prioridade
+                    </h4>
+
+                    <div
+                      class="stat-number"
+                      id="dash-metas-alta"
+                    >
+                      0
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="dash-stat-card">
+
+                  <div class="dash-stat-icon">
+                    📚
+                  </div>
+
+                  <div class="dash-stat-info">
+
+                    <h4>
+                      Resumos Salvos
+                    </h4>
+
+                    <div
+                      class="stat-number"
+                      id="dash-total-resumos"
+                    >
+                      0
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="dash-sections-grid">
+
+                <div class="dash-panel">
+
+                  <h3>
+                    📌 Últimas Metas do Planner
+                  </h3>
+
+                  <div id="dash-recent-metas"></div>
+
+                </div>
+
+
+                <div class="dash-panel">
+
+                  <h3>
+                    📝 Últimos Resumos Criados
+                  </h3>
+
+                  <div id="dash-recent-resumos"></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- DASHBOARD DO PROFESSOR -->
+
+            <div class="prof-only hidden">
+
+              <div class="dash-grid">
+
+                <div class="dash-stat-card">
+
+                  <div class="dash-stat-icon">
+                    ❓
+                  </div>
+
+                  <div class="dash-stat-info">
+
+                    <h4>
+                      Questões Criadas
+                    </h4>
+
+                    <div
+                      class="stat-number"
+                      id="prof-stat-questoes"
+                    >
+                      0
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="dash-stat-card">
+
+                  <div class="dash-stat-icon">
+                    🎓
+                  </div>
+
+                  <div class="dash-stat-info">
+
+                    <h4>
+                      Alunos Cadastrados
+                    </h4>
+
+                    <div
+                      class="stat-number"
+                      id="prof-stat-alunos"
+                    >
+                      0
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <p
+                style="
+                  color: #64748b;
+                  font-size: 14px;
+                "
+              >
+                Utilize o menu lateral para cadastrar questões,
+                enviar materiais ou acompanhar o desempenho
+                dos seus alunos.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- ================================================= -->
+          <!-- PLANNER -->
+          <!-- ================================================= -->
+
+          <section
+            id="view-planner"
+            class="view-card hidden aluno-only"
+          >
+
+            <h2>
+              Planner & Metas de Estudo
+            </h2>
+
+            <form
+              id="planner-form"
+              style="margin-top: 15px;"
+            >
+
+              <input
+                type="text"
+                id="planner-titulo"
+                placeholder="Título da matéria ou meta de estudo"
+                required
+              >
+
+              <select id="planner-prioridade">
+
+                <option value="baixa">
+                  Baixa Prioridade
+                </option>
+
+                <option
+                  value="media"
+                  selected
+                >
+                  Média Prioridade
+                </option>
+
+                <option value="alta">
+                  Alta Prioridade
+                </option>
+
+              </select>
+
+              <button type="submit">
+                Adicionar Meta
+              </button>
+
+            </form>
+
+            <p
+              id="planner-status"
+              style="
+                font-weight: bold;
+                margin-top: 10px;
+              "
+            ></p>
+
+            <h3 style="margin-top: 20px;">
+              Minhas Metas
+            </h3>
+
+            <div
+              id="planner-list"
+              style="margin-top: 10px;"
+            ></div>
+
+          </section>
+
+
+          <!-- ================================================= -->
+          <!-- RESUMOS -->
+          <!-- ================================================= -->
+
+          <section
+            id="view-resumos"
+            class="view-card hidden aluno-only"
+          >
+
+            <h2>
+              Meus Resumos de Estudo
+            </h2>
+
+            <form
+              id="resumos-form"
+              style="margin-top: 15px;"
+            >
+
+              <input
+                type="text"
+                id="resumo-disciplina"
+                placeholder="Disciplina (ex: História, Matemática)"
+                required
+              >
+
+              <input
+                type="text"
+                id="resumo-titulo"
+                placeholder="Título do resumo"
+                required
+              >
+
+              <textarea
+                id="resumo-conteudo"
+                rows="4"
+                placeholder="Escreva o conteúdo do resumo..."
+                required
+              ></textarea>
+
+              <button type="submit">
+                Guardar Resumo
+              </button>
+
+            </form>
+
+            <p
+              id="resumos-status"
+              style="
+                font-weight: bold;
+                margin-top: 10px;
+              "
+            ></p>
+
+            <h3 style="margin-top: 20px;">
+              Resumos Guardados
+            </h3>
+
+            <div
+              id="resumos-list"
+              style="margin-top: 10px;"
+            ></div>
+
+          </section>
+
+
+          <!-- ================================================= -->
+          <!-- QUESTÕES -->
+          <!-- ================================================= -->
+
+          <section
+            id="view-questoes"
+            class="view-card hidden"
+          >
+
+
+            <!-- PAINEL DO PROFESSOR -->
+
+            <div class="prof-only hidden">
+
+              <h2>
+                ➕ Painel do Professor: Cadastrar Questão
+              </h2>
+
+
+              <form
+                id="prof-form-questao"
+                class="form-grid"
+              >
+
+                <div>
+
+                  <label
+                    for="tipoQuestao"
+                    style="
+                      font-size: 13px;
+                      font-weight: 600;
+                      color: #475569;
+                    "
+                  >
+                    Tipo de questão:
+                  </label>
+
+                  <select
+                    id="tipoQuestao"
+                    name="tipoQuestao"
+                    onchange="alterarTipoQuestao()"
+                    style="
+                      width: 100%;
+                      margin-top: 4px;
+                    "
+                  >
+
+                    <option value="objetiva">
+                      Múltipla escolha
+                    </option>
+
+                    <option value="dissertativa">
+                      Dissertativa
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div>
+
+                  <label
+                    for="q-aluno-alvo"
+                    style="
+                      font-size: 13px;
+                      font-weight: 600;
+                      color: #475569;
+                    "
+                  >
+                    Destinatário da Questão:
+                  </label>
+
+                  <select
+                    id="q-aluno-alvo"
+                    required
+                    style="
+                      width: 100%;
+                      margin-top: 4px;
+                    "
+                  >
+
+                    <option value="todos">
+                      📢 Enviar para Todos os Alunos
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <input
+                  type="text"
+                  id="q-disciplina"
+                  placeholder="Disciplina (ex: Matemática, Biologia)"
+                  required
+                >
+
+
+                <textarea
+                  id="q-enunciado"
+                  rows="4"
+                  placeholder="Digite o enunciado da questão..."
+                  required
+                ></textarea>
+
+
+                <div id="alternativas">
+
+                  <input
+                    type="text"
+                    id="q-opt-a"
+                    placeholder="Alternativa A"
+                  >
+
+                  <input
+                    type="text"
+                    id="q-opt-b"
+                    placeholder="Alternativa B"
+                  >
+
+                  <input
+                    type="text"
+                    id="q-opt-c"
+                    placeholder="Alternativa C"
+                  >
+
+                  <input
+                    type="text"
+                    id="q-opt-d"
+                    placeholder="Alternativa D"
+                  >
+
+                </div>
+
+
+                <div id="campoRespostaCorreta">
+
+                  <label
+                    for="q-correta"
+                    style="
+                      font-size: 13px;
+                      font-weight: 600;
+                      color: #475569;
+                    "
+                  >
+                    Resposta correta:
+                  </label>
+
+                  <select
+                    id="q-correta"
+                    style="
+                      width: 100%;
+                      margin-top: 4px;
+                    "
+                  >
+
+                    <option value="A">
+                      Alternativa A
+                    </option>
+
+                    <option value="B">
+                      Alternativa B
+                    </option>
+
+                    <option value="C">
+                      Alternativa C
+                    </option>
+
+                    <option value="D">
+                      Alternativa D
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <button
+                  type="submit"
+                  style="margin-top: 10px;"
+                >
+                  Publicar Questão
+                </button>
+
+              </form>
+
+
+              <p
+                id="prof-q-status"
+                style="
+                  font-weight: bold;
+                  margin-top: 10px;
+                "
+              ></p>
+
+
+              <h3
+                style="
+                  margin-top: 30px;
+                  margin-bottom: 12px;
+                "
+              >
+                Questões Publicadas
+              </h3>
+
+              <div id="prof-questoes-list"></div>
+
+
+              <!-- CORREÇÃO DE DISSERTATIVAS -->
+
+              <div
+                style="
+                  margin-top: 35px;
+                  padding-top: 25px;
+                  border-top: 2px solid #e2e8f0;
+                "
+              >
+
+                <h3>
+                  📝 Correção de Questões Dissertativas
+                </h3>
+
+                <p
+                  style="
+                    color: #64748b;
+                    font-size: 14px;
+                    margin-bottom: 18px;
+                  "
+                >
+                  Aqui aparecerão as respostas dissertativas
+                  enviadas pelos alunos para você corrigir.
+                </p>
+
+                <div id="prof-correcoes-dissertativas">
+
+                  <p style="color: #64748b;">
+                    Nenhuma resposta dissertativa
+                    aguardando correção.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- PAINEL DO ALUNO -->
+
+            <div class="aluno-only">
+
+              <h2>
+                ❓ Banco de Questões & Simulado
+              </h2>
+
+              <p
+                style="
+                  color: #64748b;
+                  font-size: 14px;
+                  margin-bottom: 20px;
+                "
+              >
+                Responda às questões preparadas
+                especificamente para você ou para a sua turma!
+              </p>
+
+              <div id="aluno-questoes-list"></div>
+
+            </div>
+
+          </section>
+
+
+          <!-- ================================================= -->
+          <!-- MATERIAIS DE ESTUDO -->
+          <!-- ================================================= -->
+
+          <section
+            id="view-materiais"
+            class="view-card hidden"
+          >
+
+
+            <!-- =============================================== -->
+            <!-- PROFESSOR -->
+            <!-- =============================================== -->
+
+            <div class="prof-only hidden">
+
+              <h2>
+                📚 Materiais de Estudo
+              </h2>
+
+              <p
+                style="
+                  color: #64748b;
+                  font-size: 14px;
+                  margin-bottom: 20px;
+                "
+              >
+                Envie links de vídeos, sites, artigos,
+                documentos online e outros materiais
+                para seus alunos.
+              </p>
+
+
+              <!-- FORMULÁRIO -->
+
+              <form
+                id="materiais-form"
+                class="form-grid"
+              >
+
+                <!-- TÍTULO -->
+
+                <input
+                  type="text"
+                  id="material-titulo"
+                  placeholder="Título do material"
+                  required
+                >
+
+
+                <!-- DESCRIÇÃO -->
+
+                <textarea
+                  id="material-descricao"
+                  rows="3"
+                  placeholder="Descrição do material (opcional)"
+                ></textarea>
+
+
+                <!-- LINK -->
+
+                <input
+                  type="url"
+                  id="material-link"
+                  placeholder="https://exemplo.com/material"
+                  required
+                >
+
+
+                <!-- DESTINATÁRIO -->
+
+                <div>
+
+                  <label
+                    for="material-aluno-alvo"
+                    style="
+                      font-size: 13px;
+                      font-weight: 600;
+                      color: #475569;
+                    "
+                  >
+                    Enviar para:
+                  </label>
+
+                  <select
+                    id="material-aluno-alvo"
+                    required
+                    style="
+                      width: 100%;
+                      margin-top: 5px;
+                    "
+                  >
+
+                    <option value="todos">
+                      📢 Todos os alunos
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <!-- BOTÃO -->
+
+                <button
+                  type="submit"
+                  style="margin-top: 5px;"
+                >
+                  📤 Publicar Material
+                </button>
+
+              </form>
+
+
+              <!-- STATUS -->
+
+              <p
+                id="materiais-status"
+                style="
+                  font-weight: bold;
+                  margin-top: 10px;
+                "
+              ></p>
+
+
+              <!-- LISTA DO PROFESSOR -->
+
+              <h3
+                style="
+                  margin-top: 30px;
+                  margin-bottom: 15px;
+                "
+              >
+                📋 Materiais Publicados
+              </h3>
+
+              <div
+                id="materiais-professor-list"
+              ></div>
+
+            </div>
+
+
+            <!-- =============================================== -->
+            <!-- ALUNO -->
+            <!-- =============================================== -->
+
+            <div class="aluno-only">
+
+              <h2>
+                📚 Materiais de Estudo
+              </h2>
+
+              <p
+                style="
+                  color: #64748b;
+                  font-size: 14px;
+                  margin-bottom: 20px;
+                "
+              >
+                Aqui ficam os links e materiais
+                disponibilizados pelos seus professores.
+              </p>
+
+
+              <div
+                id="materiais-aluno-list"
+              ></div>
+
+            </div>
+
+
+          </section>
+
+
+          <!-- ================================================= -->
+          <!-- CALENDÁRIO -->
+          <!-- ================================================= -->
+
+          <section
+            id="view-calendario"
+            class="view-card hidden aluno-only"
+          >
+
+            <h2>
+              Calendário de Estudos
+            </h2>
+
+            <p
+              style="
+                color: #64748b;
+                font-size: 14px;
+                margin-bottom: 20px;
+              "
+            >
+              Clique em qualquer dia para adicionar
+              um post-it com compromissos ou tarefas.
+            </p>
+
+
+            <div class="cal-board-container">
+
+              <div class="cal-board-header">
+
+                <button
+                  id="cal-prev-month"
+                  class="cal-nav-btn"
+                >
+                  &lt;
+                </button>
+
+                <h3 id="cal-month-name">
+                  Mês Ano
+                </h3>
+
+                <button
+                  id="cal-next-month"
+                  class="cal-nav-btn"
+                >
+                  &gt;
+                </button>
+
+              </div>
+
+
+              <div class="cal-grid-weekdays">
+
+                <div>Domingo</div>
+                <div>Segunda</div>
+                <div>Terça</div>
+                <div>Quarta</div>
+                <div>Quinta</div>
+                <div>Sexta</div>
+                <div>Sábado</div>
+
+              </div>
+
+
+              <div
+                id="cal-grid-board"
+                class="cal-grid-board"
+              ></div>
+
+            </div>
+
+          </section>
+
+
+          <!-- ================================================= -->
+          <!-- CONQUISTAS -->
+          <!-- ================================================= -->
+
+          <section
+            id="view-conquistas"
+            class="view-card hidden aluno-only"
+          >
+
+            <h2>
+              🏆 Minhas Conquistas & Progresso
+            </h2>
+
+            <p
+              style="
+                color: #64748b;
+                font-size: 14px;
+                margin-bottom: 20px;
+              "
+            >
+              Acumule XP ao planear tarefas,
+              criar resumos e resolver questões!
+            </p>
+
+
+            <div class="xp-banner">
+
+              <div class="xp-level-badge">
+
+                <span id="user-level-num">
+                  1
+                </span>
+
+                <small>
+                  Nível
+                </small>
+
+              </div>
+
+
+              <div class="xp-info">
+
+                <div class="xp-labels">
+
+                  <strong id="user-level-title">
+                    Estudante Iniciante
+                  </strong>
+
+                  <span id="user-xp-text">
+                    0 / 100 XP
+                  </span>
+
+                </div>
+
+
+                <div class="xp-bar-outer">
+
+                  <div
+                    id="xp-bar-inner"
+                    class="xp-bar-inner"
+                    style="width: 0%;"
+                  ></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <h3
+              style="
+                margin-top: 28px;
+                margin-bottom: 16px;
+              "
+            >
+              Medalhas Desbloqueáveis
+            </h3>
+
+            <div
+              id="conquistas-grid"
+              class="conquistas-grid"
+            ></div>
+
+          </section>
+
+
+          <!-- ================================================= -->
+          <!-- ACOMPANHAR ALUNOS -->
+          <!-- ================================================= -->
+
+          <section
+            id="view-alunos"
+            class="view-card hidden prof-only"
+          >
+
+            <h2>
+              👥 Acompanhamento de Desempenho dos Alunos
+            </h2>
+
+            <p
+              style="
+                color: #64748b;
+                font-size: 14px;
+                margin-bottom: 20px;
+              "
+            >
+              Acompanhe em modo de leitura
+              o progresso, nível e estatísticas
+              dos alunos cadastrados.
+            </p>
+
+            <div
+              id="prof-acompanhamento-alunos"
+              class="alunos-cards-grid"
+            ></div>
+
+          </section>
+
+
+          <!-- ================================================= -->
+          <!-- MODAL DO CALENDÁRIO -->
+          <!-- ================================================= -->
+
+          <div
+            id="cal-modal"
+            class="modal-overlay hidden"
+          >
+
+            <div class="modal-card">
+
+              <h3>
+                Nova Anotação
+                (
+                <span id="modal-date-label"></span>
+                )
+              </h3>
+
+
+              <form id="cal-modal-form">
+
+                <input
+                  type="text"
+                  id="modal-note-title"
+                  placeholder="Ex: Prova de Cálculo, Entrega TCC..."
+                  required
+                  style="
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #cbd5e1;
+                    border-radius: 6px;
+                  "
+                >
+
+
+                <p
+                  style="
+                    font-size: 13px;
+                    color: #64748b;
+                    margin-top: 14px;
+                  "
+                >
+                  Escolha a cor do post-it:
+                </p>
+
+
+                <div class="color-options">
+
+                  <div
+                    class="color-option postit-yellow selected"
+                    data-color="yellow"
+                  ></div>
+
+                  <div
+                    class="color-option postit-orange"
+                    data-color="orange"
+                  ></div>
+
+                  <div
+                    class="color-option postit-green"
+                    data-color="green"
+                  ></div>
+
+                  <div
+                    class="color-option postit-teal"
+                    data-color="teal"
+                  ></div>
+
+                  <div
+                    class="color-option postit-pink"
+                    data-color="pink"
+                  ></div>
+
+                </div>
+
+
+                <p
+                  id="modal-error-msg"
+                  style="
+                    color: #ef4444;
+                    font-size: 13px;
+                    margin-top: 8px;
+                    font-weight: 600;
+                  "
+                ></p>
+
+
+                <div class="modal-actions">
+
+                  <button
+                    type="button"
+                    id="btn-cancel-modal"
+                    class="btn-secondary"
+                  >
+                    Cancelar
+                  </button>
+
+                  <button
+                    type="submit"
+                    style="
+                      background: #0284c7;
+                      color: white;
+                      border: none;
+                      padding: 8px 16px;
+                      border-radius: 6px;
+                      font-weight: 600;
+                      cursor: pointer;
+                    "
+                  >
+                    Salvar
+                  </button>
+
+                </div>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </main>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===================================================== -->
+  <!-- JAVASCRIPT PRINCIPAL -->
+  <!-- ===================================================== -->
+
+  <script
+    type="module"
+    src="app.js"
+  ></script>
+
+</body>
+
+</html>
